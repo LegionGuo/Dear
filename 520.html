@@ -20,12 +20,14 @@
 </style>
 </head>
 <body>
-<audio loop src="/bgm.mp3" id="audio" autoplay preload="auto">该浏览器不支持audio属性</audio>
 <div id="main">
 	<div id="error">
 		谷歌内核(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
 	</div>
-
+	<audio autoplay loop id="audio">
+		<source src="bgm.mp3" type="audio/mpeg">
+		您的浏览器不支持 audio 元素。
+	</audio>
 	<div id="wrap">
 		<div id="text">
 			<div id="code">
@@ -110,6 +112,7 @@
         var foot = tree.footer;
         var hold = 1;
         canvas.click(function(e) {
+			$("#audio")[0].play();
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
